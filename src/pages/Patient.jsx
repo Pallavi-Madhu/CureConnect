@@ -50,7 +50,7 @@ subHeadingText: {
   const renderItem = ({ item }) => (
     <TouchableOpacity
       style={[styles.card, { backgroundColor: colors.card, borderColor: colors.background }]}
-      onPress={() => navigation.navigate('Profiles', { patient: item })}
+      onPress={() => navigation.navigate('PatientProfiles', { patient: item })}
     >
       <Image source={{ uri: item.avatar }} style={styles.avatar} />
       <View style={styles.info}>
