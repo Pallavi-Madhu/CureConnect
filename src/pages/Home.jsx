@@ -44,10 +44,10 @@ const Home = ({ navigation }) => {
   return (
     <View style={styles.container}>
       {/* App title at the top */}
-      <Text style={styles.appTitle}>CureConnect</Text>
+      <Text style={styles.appTitle}>Cure Connect</Text>
 
       {/* Welcome text */}
-      <Text style={styles.welcome}>Welcome to CureConnect!</Text>
+      <Text style={styles.welcome}>Welcome to Cure Connect!</Text>
 
       {/* Buttons */}
       <TouchableOpacity
