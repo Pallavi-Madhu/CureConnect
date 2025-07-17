@@ -4,8 +4,13 @@ import Home from "../src/pages/Home";
 import Patient from "../src/pages/Patient";
 import Donor from "../src/pages/Donor";
 import Settings from "../src/pages/Settings";
+import { useTheme } from '@react-navigation/native';
+
+
 const Tab = createBottomTabNavigator();
 const MainTab = () => {
+     const { colors } = useTheme();
+
     return(
         <>
         <Tab.Navigator
@@ -20,11 +25,21 @@ const MainTab = () => {
                     tabBarIcon: ({ color, size }) => (
                     <Icon name={iconName} size={size} color={color} />
                     ),
-                    headerShown: false,
-                    tabBarStyle: {
-                    height: 55,
-                    padding: "auto"
-                    },
+                   headerShown: false,
+      tabBarStyle: {
+        height: "6%",              
+        backgroundColor: colors.background,
+        position: 'absolute',      
+        bottom: 0,
+        left: 0,
+        right: 0,
+        elevation: 10,             
+        shadowColor: colors.background,      
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.3,
+        shadowRadius: 4,
+        zIndex: 10,          
+      },
                     tabBarSafeAreaInsets: { bottom: 8 },
                 };
             }}
