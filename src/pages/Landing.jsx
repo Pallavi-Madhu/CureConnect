@@ -5,7 +5,7 @@ import AnimatedDNA from "../../Components/AnimatedDNA.jsx";
 const Landing = ({navigation}) =>{
     useEffect(() => {
         const timer = setTimeout(() => {
-            navigation.replace("MainTabs")
+            navigation.replace("MainTabs");
         },2500);
         return () => clearTimeout(timer);
     }, [navigation]);
