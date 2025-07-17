@@ -15,10 +15,10 @@ const Home = ({ navigation }) => {
     padding: 16,
   },
   appTitle: {
-    fontSize: 70,
+    fontSize: 60,
     fontWeight: 'bold',
     color: colors.primary,
-    marginBottom: 200,
+    marginBottom: 150,
     fontFamily: 'cursive',
   },
   welcome: {
