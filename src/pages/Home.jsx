@@ -1,9 +1,10 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet , Alert} from 'react-native';
-import { useTheme } from '@react-navigation/native';
+import { useNavigation, useTheme } from '@react-navigation/native';
 
-const Home = ({ navigation }) => {
+const Home = () => {
   const { colors } = useTheme();
+  const navigation = useNavigation();
 
   const styles = StyleSheet.create({
   container: {
@@ -39,41 +40,35 @@ const Home = ({ navigation }) => {
     color: colors.background,
     fontSize: 16,
   },
-});
+
+  });
 
   return (
     <View style={styles.container}>
-      {/* App title at the top */}
       <Text style={styles.appTitle}>CureConnect</Text>
-
-      {/* Welcome text */}
       <Text style={styles.welcome}>Welcome to CureConnect!</Text>
-
-      {/* Buttons */}
       <TouchableOpacity
-  style={styles.button}
-  onPress={() => {
-    Alert.alert('Info', 'You can now create a patient profile');
-    //navigation.navigate('PatientPage');// Uncomment this line if you have a Patient page
-  }}
->
-  <Text style={styles.buttonText}>Set Up Patient Profile</Text>
-</TouchableOpacity>
+          style={styles.button}
+          onPress={() => {
+            navigation.navigate('PatientForms');
+          }}
+        >
+        <Text style={styles.buttonText}>Set Up Patient Profile</Text>
+        </TouchableOpacity>
 
-<TouchableOpacity
-  style={styles.button}
-  onPress={() => {
-    Alert.alert('Info', 'You can now create a donor profile');
-    //navigation.navigate('DonorPage'); // Uncomment this line if you have a Donor page
-  }}
->
-  <Text style={styles.buttonText}>Set Up Donor Profile</Text>
-</TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            navigation.navigate('DonorForms'); 
+          }}
+        >
+          <Text style={styles.buttonText}>Set Up Donor Profile</Text>
+        </TouchableOpacity>
 
-    </View>
-  );
-};
-
-
+            </View>
+          );
+        }
 
 export default Home;
+
+  
