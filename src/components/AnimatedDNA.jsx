@@ -22,7 +22,7 @@ const AnimatedDNA = () => {
   return (
     <View style={styles.container}>
       <Animated.Image
-        source={require("../assets/images/logo.png")}
+        source={require("../../assets/images/logo.png")}
         style={[styles.image, { transform: [{ rotate: rotation }] }]}
       />
     </View>
