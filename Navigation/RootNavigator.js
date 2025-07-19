@@ -14,8 +14,8 @@ const RootNavigator = () => {
     return(
         <Stack.Navigator screenOptions={{ headerShown : false}}>
             <Stack.Screen name = "Landing" component = {Landing}/>
-            <Stack.Screen name = "SignIn" component = {SignIn}/>
-            <Stack.Screen name="SignUp" component={SignUp} />
+            {/* <Stack.Screen name = "SignIn" component = {SignIn}/>
+            <Stack.Screen name = "SignUp" component={SignUp} /> */}
             <Stack.Screen name = "MainTabs" component = {MainTab}/>
             <Stack.Screen name = "PatientProfiles" component = {PatientProfiles}/>
             <Stack.Screen name = "DonorProfile" component = {DonorProfile}/>
