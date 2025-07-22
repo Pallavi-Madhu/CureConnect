@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet , Alert} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useTheme } from '@react-navigation/native';
 
 const Home = ({ navigation }) => {
@@ -15,10 +15,10 @@ const Home = ({ navigation }) => {
     padding: 16,
   },
   appTitle: {
-    fontSize: 70,
+    fontSize: 60,
     fontWeight: 'bold',
     color: colors.primary,
-    marginBottom: 200,
+    marginBottom: 150,
     fontFamily: 'cursive',
   },
   welcome: {
@@ -44,17 +44,16 @@ const Home = ({ navigation }) => {
   return (
     <View style={styles.container}>
       {/* App title at the top */}
-      <Text style={styles.appTitle}>CureConnect</Text>
+      <Text style={styles.appTitle}>Cure Connect</Text>
 
       {/* Welcome text */}
-      <Text style={styles.welcome}>Welcome to CureConnect!</Text>
+      <Text style={styles.welcome}>Welcome to Cure Connect!</Text>
 
       {/* Buttons */}
       <TouchableOpacity
   style={styles.button}
   onPress={() => {
-    Alert.alert('Info', 'You can now create a patient profile');
-    //navigation.navigate('PatientPage');// Uncomment this line if you have a Patient page
+    navigation.navigate('PatientForm');
   }}
 >
   <Text style={styles.buttonText}>Set Up Patient Profile</Text>
@@ -63,8 +62,8 @@ const Home = ({ navigation }) => {
 <TouchableOpacity
   style={styles.button}
   onPress={() => {
-    Alert.alert('Info', 'You can now create a donor profile');
-    //navigation.navigate('DonorPage'); // Uncomment this line if you have a Donor page
+    
+    navigation.navigate('DonorForm'); 
   }}
 >
   <Text style={styles.buttonText}>Set Up Donor Profile</Text>
