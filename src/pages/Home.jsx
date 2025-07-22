@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet , Alert} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation, useTheme } from '@react-navigation/native';
 
 const Home = () => {
@@ -16,10 +16,10 @@ const Home = () => {
     padding: 16,
   },
   appTitle: {
-    fontSize: 70,
+    fontSize: 60,
     fontWeight: 'bold',
     color: colors.primary,
-    marginBottom: 200,
+    marginBottom: 150,
     fontFamily: 'cursive',
   },
   welcome: {
@@ -45,25 +45,31 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.appTitle}>CureConnect</Text>
-      <Text style={styles.welcome}>Welcome to CureConnect!</Text>
-      <TouchableOpacity
-          style={styles.button}
-          onPress={() => {
-            navigation.navigate('PatientForms');
-          }}
-        >
-        <Text style={styles.buttonText}>Set Up Patient Profile</Text>
-        </TouchableOpacity>
+      {/* App title at the top */}
+      <Text style={styles.appTitle}>Cure Connect</Text>
 
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => {
-            navigation.navigate('DonorForms'); 
-          }}
-        >
-          <Text style={styles.buttonText}>Set Up Donor Profile</Text>
-        </TouchableOpacity>
+      {/* Welcome text */}
+      <Text style={styles.welcome}>Welcome to Cure Connect!</Text>
+
+      {/* Buttons */}
+      <TouchableOpacity
+  style={styles.button}
+  onPress={() => {
+    navigation.navigate('PatientForm');
+  }}
+>
+  <Text style={styles.buttonText}>Set Up Patient Profile</Text>
+</TouchableOpacity>
+
+<TouchableOpacity
+  style={styles.button}
+  onPress={() => {
+    
+    navigation.navigate('DonorForm'); 
+  }}
+>
+  <Text style={styles.buttonText}>Set Up Donor Profile</Text>
+</TouchableOpacity>
 
             </View>
           );
