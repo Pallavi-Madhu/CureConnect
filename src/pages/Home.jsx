@@ -1,9 +1,10 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { useTheme } from '@react-navigation/native';
+import { useNavigation, useTheme } from '@react-navigation/native';
 
-const Home = ({ navigation }) => {
+const Home = () => {
   const { colors } = useTheme();
+  const navigation = useNavigation();
 
   const styles = StyleSheet.create({
   container: {
@@ -39,7 +40,8 @@ const Home = ({ navigation }) => {
     color: colors.background,
     fontSize: 16,
   },
-});
+
+  });
 
   return (
     <View style={styles.container}>
@@ -69,10 +71,10 @@ const Home = ({ navigation }) => {
   <Text style={styles.buttonText}>Set Up Donor Profile</Text>
 </TouchableOpacity>
 
-    </View>
-  );
-};
-
-
+            </View>
+          );
+        }
 
 export default Home;
+
+  

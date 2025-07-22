@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {View, StyleSheet, Image} from 'react-native';
-import AnimatedDNA from "../../Components/AnimatedDNA.jsx";
+import AnimatedDNA from "../components/AnimatedDNA"
 
 const Landing = ({navigation}) =>{
     useEffect(() => {
