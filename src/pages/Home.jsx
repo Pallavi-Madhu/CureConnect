@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet , Alert} from 'react-native';
-import { useTheme } from '@react-navigation/native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { useNavigation, useTheme } from '@react-navigation/native';
 
-const Home = ({ navigation }) => {
+const Home = () => {
   const { colors } = useTheme();
+  const navigation = useNavigation();
 
   const styles = StyleSheet.create({
   container: {
@@ -39,7 +40,8 @@ const Home = ({ navigation }) => {
     color: colors.background,
     fontSize: 16,
   },
-});
+
+  });
 
   return (
     <View style={styles.container}>
@@ -53,8 +55,7 @@ const Home = ({ navigation }) => {
       <TouchableOpacity
   style={styles.button}
   onPress={() => {
-    Alert.alert('Info', 'You can now create a patient profile');
-    //navigation.navigate('PatientPage');// Uncomment this line if you have a Patient page
+    navigation.navigate('PatientForm');
   }}
 >
   <Text style={styles.buttonText}>Set Up Patient Profile</Text>
@@ -63,17 +64,17 @@ const Home = ({ navigation }) => {
 <TouchableOpacity
   style={styles.button}
   onPress={() => {
-    Alert.alert('Info', 'You can now create a donor profile');
-    //navigation.navigate('DonorPage'); // Uncomment this line if you have a Donor page
+    
+    navigation.navigate('DonorForm'); 
   }}
 >
   <Text style={styles.buttonText}>Set Up Donor Profile</Text>
 </TouchableOpacity>
 
-    </View>
-  );
-};
-
-
+            </View>
+          );
+        }
 
 export default Home;
+
+  
