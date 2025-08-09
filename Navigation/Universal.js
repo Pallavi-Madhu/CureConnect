@@ -6,7 +6,7 @@ import AuthStack from "./AuthStack.js";
 const Stack = createStackNavigator();
 
 const UniversalNavi = () => {
-  const isLoggedIn = false; // Replace with true to go to main pages for the time being
+  const isLoggedIn = true; // Replace with true to go to main pages for the time being-
 
   return (
     <Stack.Navigator>
