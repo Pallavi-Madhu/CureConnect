@@ -14,7 +14,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import { useTheme } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
-import { signUp } from "../../store/AuthThunk";
+import { signUp } from "../../Store/AuthThunk";
 import Icon from "react-native-vector-icons/Ionicons";
 import Toast from "react-native-toast-message";
 
@@ -32,7 +32,7 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpass, setConfirmPass] = useState("");
-  const [username, setUserName] = useState("");
+  const [name, setName] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -50,8 +50,9 @@ const SignUp = () => {
   };
 
   const handleSignUp = async () => {
+    console.warn("hi")
     try {
-      if (!username || !email || !password || !confirmpass) {
+      if (!name || !email || !password || !confirmpass) {
         showToast("Please fill in all the fields"); 
         return;
       }
@@ -61,7 +62,9 @@ const SignUp = () => {
         return;
       }
 
-      const result = await dispatch(signUp({ email, password, username })).unwrap();
+      const result = await dispatch(signUp({ email, password, name })).unwrap();
+      console.warn(result)
+
 
       if (result && result.success) {
         alert("Account created successfully! Please sign in");
@@ -99,13 +102,14 @@ const SignUp = () => {
           {loading ? (
             <ActivityIndicator size="large" color="#005b96" />
           ) : (
+
             <>
               <TextInput
                 placeholder="Full Name"
                 placeholderTextColor="#888"
                 style={styles.input}
-                value={username}
-                onChangeText={setUserName}
+                value={name}
+                onChangeText={setName}
               />
               <TextInput
                 placeholder="Email Address"
@@ -119,7 +123,7 @@ const SignUp = () => {
               <View>
                 <TextInput
                   placeholder="Password"
-                  placeholderTextColor="#888"
+                  placeholderTextColor="black"
                   secureTextEntry={!showPassword}
                   style={styles.input}
                   value={password}
@@ -139,6 +143,7 @@ const SignUp = () => {
                   placeholderTextColor="#888"
                   secureTextEntry={!showConfirmPassword}
                   style={styles.input}
+
                   value={confirmpass}
                   onChangeText={setConfirmPass}
                 />
@@ -205,10 +210,12 @@ const styles = StyleSheet.create({
     width: "100%",
     borderColor: "#ccc",
     borderWidth: 1,
+    
     borderRadius: 8,
     padding: 10,
     paddingRight: 40, 
     marginVertical: 6,
+    color: "#005b96",
   },
   loginBtn: {
     backgroundColor: "#005b96",
