@@ -40,8 +40,7 @@ export const signUp =  createAsyncThunk(
             dispatch(setError(null));
 
             const response = await axios.post(
-                `${Constants.expoConfig.extra.SERVER
-                }/api/auth/signup`,
+                `http://192.168.1.107:3000/api/auth/signup`,
                 {email,password,name}
             );
 
@@ -73,8 +72,7 @@ export const signIn = createAsyncThunk(
       dispatch(setLoading(true));
 
       const response = await axios.post(
-        `${Constants.expoConfig.extra.SERVER
-        }/api/auth//signin`,
+        `http://192.168.1.107:3000/api/auth/signin`,
         { email, password }
       );
 

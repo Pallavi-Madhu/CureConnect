@@ -28,7 +28,7 @@ const userSlice = createSlice({
             state.error = action.payload;
         }
     },
-    extraReducers:() => {
+    extraReducers:(builder) => {
         builder 
         .addCase(signIn.fulfilled, (state, action) => {
         state.user = action.payload.user;

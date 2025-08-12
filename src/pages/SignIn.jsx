@@ -11,7 +11,7 @@ import {
 import { useTheme } from "@react-navigation/native";
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
-import { signIn } from "../../store/AuthThunk";
+import { signIn } from "../../Store/AuthThunk";
 
 const SignIn = () => {
   const { colors } = useTheme();
@@ -87,6 +87,7 @@ const SignIn = () => {
       borderRadius: 8,
       padding: 10,
       marginVertical: 6,
+      color:"black"
     },
     forgotText: {
       alignSelf: 'flex-end',
@@ -102,7 +103,7 @@ const SignIn = () => {
       alignItems: 'center',
     },
     loginText: {
-      color: '#fff',
+      color: 'black',
       fontWeight: '600',
     },
     bottomText: {
