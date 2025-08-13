@@ -75,11 +75,12 @@ export const signIn = createAsyncThunk(
         `http://192.168.1.107:3000/api/auth/signin`,
         { email, password }
       );
-
+      console.warn("Response:",response)
       if (response.data && response.data.user) {
         const { user, session } = response.data;
 
-
+        console.warn(user)
+        console.warn(session)
         await AsyncStorage.setItem("user", JSON.stringify(user));
         if (session) {
           await AsyncStorage.setItem("session", JSON.stringify(session));

@@ -1,16 +1,23 @@
-import React from "react";
+import {React, useEffect} from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import RootNavigator from "./RootNavigator.js";
 import AuthStack from "./AuthStack.js";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { loadUser } from "../Store/AuthThunk.js";
 
 const Stack = createStackNavigator();
 
-const {user} = useSelector((state) => state.user || {})
-console.warn(user)
+
 
 const UniversalNavi = () => {
+  const dispatch = useDispatch();
   //const isLoggedIn = false; // Replace with true to go to main pages for the time being-
+  const {user} = useSelector((state) => state.user || {})
+   useEffect(() => {
+      dispatch(loadUser());
+    }, [dispatch]);
+
+  console.warn(user)
 
   return (
     <Stack.Navigator>

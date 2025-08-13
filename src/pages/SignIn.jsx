@@ -87,7 +87,7 @@ const SignIn = () => {
       borderRadius: 8,
       padding: 10,
       marginVertical: 6,
-      color:"black"
+      color: '#005b96',
     },
     forgotText: {
       alignSelf: 'flex-end',
