@@ -3,16 +3,14 @@ import { View, Text, TextInput, Button, StyleSheet, ScrollView, Alert } from 're
 
 const DonorForm = ({navigation}) => {
   const [formData, setFormData] = useState({
+    donorID: '',
     fullName: '',
     age: '',
     gender: '',
     bloodGroup: '',
     contact: '',
-    dnaSequence: '',
-    healthConditions: '',
-    diseaseCarriers: '',
-    relevantChemicals: '',
-    omimIDs: '',
+    genotype: '',
+    RSID: '',
   });
 
   const handleChange = (field, value) => {
@@ -21,6 +19,21 @@ const DonorForm = ({navigation}) => {
 
   const handleSubmit = () => {
     //ToDo: send formdata to backend
+
+    const requiredFields = Object.keys(formData)
+
+    for (let field of requiredFields) {
+          if (!formData[field].trim()) {
+            Alert.alert('Validation Error', `${field} is required`);
+            return;
+          }
+        }
+
+     if (isNaN(formData.age) || parseInt(formData.age) <= 0) {
+          Alert.alert('Validation Error', 'Age must be a positive number');
+          return;
+        }
+    
     navigation.navigate('MainTabs');
   };
 
@@ -29,16 +42,14 @@ const DonorForm = ({navigation}) => {
       <Text style={styles.title}>Donor Form</Text>
 
       {[
+        { label: 'Donor ID', field: 'donorID' },
         { label: 'Full Name', field: 'fullName' },
         { label: 'Age', field: 'age' },
         { label: 'Gender', field: 'gender' },
         { label: 'Blood Group', field: 'bloodGroup' },
         { label: 'Contact Information', field: 'contact' },
-        { label: 'DNA Sequence', field: 'dnaSequence' },
-        { label: 'Health Conditions', field: 'healthConditions' },
-        { label: 'Known Disease Carriers / Risk Factors', field: 'diseaseCarriers' },
-        { label: 'Relevant Chemicals', field: 'relevantChemicals' },
-        { label: 'OMIM IDs', field: 'omimIDs' },
+        { label: 'Genotype', field: 'genotype' },
+        { label: 'RSID', field: 'RSID' },
       ].map(({ label, field }) => (
         <View key={field} style={styles.inputContainer}>
           <Text>{label}:</Text>
