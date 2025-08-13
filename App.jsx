@@ -6,7 +6,6 @@ import { lightTheme } from './Theme/lightTheme';
 import store from "./Store/store"
 import { Provider } from 'react-redux';
 
-
 export default function App() {
   return (
     <Provider store={store}> 
