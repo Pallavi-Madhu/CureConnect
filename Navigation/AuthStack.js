@@ -5,7 +5,7 @@ import SignUp from "../src/pages/SignUp";
 
 const Stack = createStackNavigator();
 const AuthStack = () => {
-    
+
 
     return(
         <Stack.Navigator>
