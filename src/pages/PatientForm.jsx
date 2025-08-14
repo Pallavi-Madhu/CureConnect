@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, ScrollView, Alert } from 'react-native';
 
 const PatientForm = ({ navigation }) => {
   const [formData, setFormData] = useState({
+    patientid: '',
     fullName: '',
     age: '',
     gender: '',
+    bloodgroup: '',
     contact: '',
     symptoms: '',
-    dnaSequence: '',
-    familyHistory: '',
-    omimIDs: '',
-    pubmedRefs: '',
-    directEvidence: '',
-    inferenceGeneSymbols: '',
-    inferenceScore: '',
+    genotype: '',
+    RSID: '',
   });
 
   const handleChange = (field, value) => {
@@ -22,7 +19,22 @@ const PatientForm = ({ navigation }) => {
   };
 
   const handleSubmit = () => {
-    // TODO: send formData to backend
+    
+    const requiredFields = Object.keys(formData).filter((key) => key !== 'symptoms');//symptoms field is optional
+
+    for (let field of requiredFields) {
+      if (!formData[field].trim()) {
+        Alert.alert('Validation Error', `${field} is required`);
+        return;
+      }
+    }
+
+    
+    if (isNaN(formData.age) || parseInt(formData.age) <= 0) {
+      Alert.alert('Validation Error', 'Age must be a positive number');
+      return;
+    }
+
     navigation.navigate('MainTabs');
   };
 
@@ -31,18 +43,15 @@ const PatientForm = ({ navigation }) => {
       <Text style={styles.title}>Patient Form</Text>
 
       {[
+        { label: 'Patient ID', field: 'patientid' },
         { label: 'Full Name', field: 'fullName' },
         { label: 'Age', field: 'age' },
         { label: 'Gender', field: 'gender' },
+        { label: 'Bloodgroup', field: 'bloodgroup' },
         { label: 'Contact Information', field: 'contact' },
-        { label: 'Symptoms', field: 'symptoms' },
-        { label: 'DNA Sequence', field: 'dnaSequence' },
-        { label: 'Family Medical History', field: 'familyHistory' },
-        { label: 'OMIM IDs (optional)', field: 'omimIDs' },
-        { label: 'PubMed References (optional, comma-separated)', field: 'pubmedRefs' },
-        { label: 'Direct Evidence Notes', field: 'directEvidence' },
-        { label: 'Inference Gene Symbol(s)', field: 'inferenceGeneSymbols' },
-        { label: 'Inference Score (optional)', field: 'inferenceScore' },
+        { label: 'Symptoms (Optional)', field: 'symptoms' }, 
+        { label: 'Genotype', field: 'genotype' },
+        { label: 'RSID', field: 'RSID' },
       ].map(({ label, field }) => (
         <View key={field} style={styles.inputContainer}>
           <Text>{label}:</Text>
