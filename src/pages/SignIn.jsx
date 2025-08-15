@@ -11,7 +11,7 @@ import {
 import { useTheme } from "@react-navigation/native";
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
-import { signIn } from "../../Store/AuthThunk";
+import { signIn } from "../../../Store/AuthThunk";
 
 const SignIn = () => {
   const { colors } = useTheme();
