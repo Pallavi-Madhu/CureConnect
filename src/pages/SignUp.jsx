@@ -67,7 +67,7 @@ const SignUp = () => {
 
 
       if (result && result.success) {
-        alert("Account created successfully! Please sign in");
+        showToast("Accounted created successfully")
         navigation.navigate("SignIn"); 
       } else {
         const errorMessage =
