@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, ScrollView, Alert } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { submitDonor } from '../../Store/DonorThunk';
 
 const DonorForm = ({navigation}) => {
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     donorID: '',
     fullName: '',
@@ -18,8 +21,7 @@ const DonorForm = ({navigation}) => {
   };
 
   const handleSubmit = () => {
-    //ToDo: send formdata to backend
-
+    
     const requiredFields = Object.keys(formData)
 
     for (let field of requiredFields) {
@@ -34,6 +36,7 @@ const DonorForm = ({navigation}) => {
           return;
         }
     
+    dispatch(submitDonor(formData));
     navigation.navigate('MainTabs');
   };
 
