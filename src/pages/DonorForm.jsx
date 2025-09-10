@@ -6,13 +6,13 @@ import { submitDonor } from '../../Store/DonorThunk';
 const DonorForm = ({navigation}) => {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
-    donorID: '',
-    fullName: '',
-    age: '',
-    gender: '',
-    bloodGroup: '',
-    contact: '',
-    genotype: '',
+    Donor_id: '',
+    Name: '',
+    Age: '',
+    Gender: '',
+    BloodGroup: '',
+    Contact: '',
+    Genotype: '',
     RSID: '',
   });
 
@@ -31,7 +31,7 @@ const DonorForm = ({navigation}) => {
           }
         }
 
-     if (isNaN(formData.age) || parseInt(formData.age) <= 0) {
+     if (isNaN(formData.Age) || parseInt(formData.Age) <= 0) {
           Alert.alert('Validation Error', 'Age must be a positive number');
           return;
         }
@@ -45,13 +45,13 @@ const DonorForm = ({navigation}) => {
       <Text style={styles.title}>Donor Form</Text>
 
       {[
-        { label: 'Donor ID', field: 'donorID' },
-        { label: 'Full Name', field: 'fullName' },
-        { label: 'Age', field: 'age' },
-        { label: 'Gender', field: 'gender' },
-        { label: 'Blood Group', field: 'bloodGroup' },
-        { label: 'Contact Information', field: 'contact' },
-        { label: 'Genotype', field: 'genotype' },
+        { label: 'Donor ID', field: 'Donor_id' },
+        { label: 'Full Name', field: 'Name' },
+        { label: 'Age', field: 'Age' },
+        { label: 'Gender', field: 'Gender' },
+        { label: 'Blood Group', field: 'BloodGroup' },
+        { label: 'Contact Information', field: 'Contact' },
+        { label: 'Genotype', field: 'Genotype' },
         { label: 'RSID', field: 'RSID' },
       ].map(({ label, field }) => (
         <View key={field} style={styles.inputContainer}>

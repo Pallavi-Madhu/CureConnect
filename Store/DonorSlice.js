@@ -19,7 +19,7 @@ extraReducers: (builder) => {
         })
         .addCase(submitDonor.fulfilled, (state, action) => {
             state.loading =false;
-            state.patient = action.payload;
+            state.donor = action.payload;
             ToastAndroid.show("Donor registered successfully", ToastAndroid.SHORT);
         })
         .addCase(submitDonor.rejected, (state, action) => {
