@@ -1,21 +1,20 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const submitDonor=createAsyncThunk(
-    "donor/submitDonor",
-    async(donorData, {rejectWithValue}) =>{
+export const submitPatient=createAsyncThunk(
+    "patient/submitPatient",
+    async(patientData, {rejectWithValue}) =>{
         try{
             const response= await axios.post(
-                "http://192.168.1.84:3000/api/donor",
-                donorData
+                "http://192.168.1.84:3000/api/patient",
+                patientData
             );
             return response.data;
         }
         catch(error){
             return rejectWithValue(
-                error.response?.data?.error || "Failed to register donor"
+                error.response?.data?.error || "Failed to register patient"
             );
         }
     }
 );
-

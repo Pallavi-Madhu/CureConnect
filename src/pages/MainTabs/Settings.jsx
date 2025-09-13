@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text,Button} from 'react-native';
 import { useDispatch } from 'react-redux';
-import { signOut } from '../../Store/AuthThunk';
+import { signOut } from '../../../Store/AuthThunk';
 
 const Settings = () => {
   const dispatch = useDispatch();

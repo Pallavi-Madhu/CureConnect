@@ -14,7 +14,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import { useTheme } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
-import { signUp } from "../../Store/AuthThunk";
+import { signUp } from "../../../Store/AuthThunk";
 import Icon from "react-native-vector-icons/Ionicons";
 import Toast from "react-native-toast-message";
 
@@ -94,7 +94,7 @@ const SignUp = () => {
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <View style={styles.card}>
           <Image
-            source={require("../../assets/images/logo.png")}
+            source={require("../../../assets/images/logo.png")}
             style={styles.logo}
           />
           <Text style={styles.title}>CureConnect</Text>

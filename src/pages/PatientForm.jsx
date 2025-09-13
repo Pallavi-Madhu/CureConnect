@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, ScrollView, Alert } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { submitPatient } from '../../Store/PatientThunk';
 
 const PatientForm = ({ navigation }) => {
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
-    patientid: '',
-    fullName: '',
-    age: '',
-    gender: '',
-    bloodgroup: '',
-    contact: '',
-    symptoms: '',
-    genotype: '',
+    Patient_id: '',
+    Name: '',
+    Age: '',
+    Gender: '',
+    BloodGroup: '',
+    Contact: '',
+    Symptoms: '',
+    GenoType: '',
     RSID: '',
   });
 
@@ -30,11 +33,12 @@ const PatientForm = ({ navigation }) => {
     }
 
     
-    if (isNaN(formData.age) || parseInt(formData.age) <= 0) {
+    if (isNaN(formData.Age) || parseInt(formData.Age) <= 0) {
       Alert.alert('Validation Error', 'Age must be a positive number');
       return;
     }
 
+    dispatch(submitPatient(formData));
     navigation.navigate('MainTabs');
   };
 
@@ -43,14 +47,14 @@ const PatientForm = ({ navigation }) => {
       <Text style={styles.title}>Patient Form</Text>
 
       {[
-        { label: 'Patient ID', field: 'patientid' },
-        { label: 'Full Name', field: 'fullName' },
-        { label: 'Age', field: 'age' },
-        { label: 'Gender', field: 'gender' },
-        { label: 'Bloodgroup', field: 'bloodgroup' },
-        { label: 'Contact Information', field: 'contact' },
-        { label: 'Symptoms (Optional)', field: 'symptoms' }, 
-        { label: 'Genotype', field: 'genotype' },
+        { label: 'Patient ID', field: 'Patient_id' },
+        { label: 'Full Name', field: 'Name' },
+        { label: 'Age', field: 'Age' },
+        { label: 'Gender', field: 'Gender' },
+        { label: 'Bloodgroup', field: 'BloodGroup' },
+        { label: 'Contact Information', field: 'Contact' },
+        { label: 'Symptoms (Optional)', field: 'Symptoms' }, 
+        { label: 'Genotype', field: 'GenoType' },
         { label: 'RSID', field: 'RSID' },
       ].map(({ label, field }) => (
         <View key={field} style={styles.inputContainer}>

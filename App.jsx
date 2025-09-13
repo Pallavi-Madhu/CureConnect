@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import UniversalNavi from './Navigation/Universal';
 import { lightTheme } from './Theme/lightTheme';
-import store from "./Store/store"
+import store from "./Store/store";
 import { Provider } from 'react-redux';
 import Toast from 'react-native-toast-message';
 
