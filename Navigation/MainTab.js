@@ -1,9 +1,9 @@
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import Home from "../src/pages/Home";
-import Patient from "../src/pages/Patient";
-import Donor from "../src/pages/Donor";
-import Settings from "../src/pages/Settings";
+import Home from "../src/pages/MainTabs/Home";
+import Patient from "../src/pages/MainTabs/Patient";
+import Donor from "../src/pages/MainTabs/Donor";
+import Settings from "../src/pages/MainTabs/Settings";
 import { useTheme } from '@react-navigation/native';
 
 

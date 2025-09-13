@@ -94,7 +94,7 @@ const SignUp = () => {
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <View style={styles.card}>
           <Image
-            source={require("../../assets/images/logo.png")}
+            source={require("../../../assets/images/logo.png")}
             style={styles.logo}
           />
           <Text style={styles.title}>CureConnect</Text>

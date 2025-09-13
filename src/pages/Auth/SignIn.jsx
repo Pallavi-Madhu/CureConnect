@@ -120,7 +120,7 @@ const SignIn = () => {
   return (
     <View style={styles.container}>
       <View style={styles.card}>
-        <Image source={require('../../assets/images/logo.png')} style={styles.logo} />
+        <Image source={require('../../../assets/images/logo.png')} style={styles.logo} />
         <Text style={styles.title}>CureConnect</Text>
 
         <TextInput
