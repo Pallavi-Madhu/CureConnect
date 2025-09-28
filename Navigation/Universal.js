@@ -7,11 +7,9 @@ import { loadUser } from "../Store/AuthThunk.js";
 
 const Stack = createStackNavigator();
 
-
-
 const UniversalNavi = () => {
+  
   const dispatch = useDispatch();
-  //const isLoggedIn = false; // Replace with true to go to main pages for the time being-
   const {user} = useSelector((state) => state.user || {})
    useEffect(() => {
       dispatch(loadUser());
@@ -21,9 +19,9 @@ const UniversalNavi = () => {
 
   return (
     <Stack.Navigator>
-        {user? (
+        {user ?(
           <Stack.Screen name="RootNavigator" component={RootNavigator} options={{ headerShown: false }}/>
-        ) : (
+        ):(
           <Stack.Screen name="AuthStack" component={AuthStack} options={{ headerShown: false }}
           />
         )}

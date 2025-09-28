@@ -3,8 +3,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import UniversalNavi from './Navigation/Universal';
 import { lightTheme } from './Theme/lightTheme';
-import store from "./Store/store"
+import store from "./Store/store";
 import { Provider } from 'react-redux';
+import Toast from 'react-native-toast-message';
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
         />
         <NavigationContainer theme={lightTheme}>
           <UniversalNavi />
+          <Toast/>
         </NavigationContainer>
         </KeyboardAvoidingView>
       </SafeAreaView>

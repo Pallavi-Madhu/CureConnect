@@ -11,7 +11,7 @@ import {
 import { useTheme } from "@react-navigation/native";
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
-import { signIn } from "../../Store/AuthThunk";
+import { signIn } from "../../../Store/AuthThunk";
 
 const SignIn = () => {
   const { colors } = useTheme();
@@ -120,7 +120,7 @@ const SignIn = () => {
   return (
     <View style={styles.container}>
       <View style={styles.card}>
-        <Image source={require('../../assets/images/logo.png')} style={styles.logo} />
+        <Image source={require('../../../assets/images/logo.png')} style={styles.logo} />
         <Text style={styles.title}>CureConnect</Text>
 
         <TextInput
